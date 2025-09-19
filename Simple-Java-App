@@ -1,0 +1,14 @@
+#Download a base image which gives all the required tools & Libraries
+FROM openjdk:17-jdk-alpine
+
+#create a working directry where all the app codes will be stored
+WORKDIR /app
+
+#Copy the source code from the Host Machine to the Conatiner
+COPY src/Main.java /app/Main.java
+
+#compile the application code
+RUN javac Main.java
+
+#Run the application
+CMD ["java", "Main"]
